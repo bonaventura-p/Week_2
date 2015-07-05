@@ -1,5 +1,7 @@
-import re
-card_number='5263-3065-0122-0017'
+#import re
+#card_number='5263-3065-0122-0017'
+
+
 def luhn_checksum(card_number):
     def digits_of(n):
         return [int(d) for d in str(n)]
