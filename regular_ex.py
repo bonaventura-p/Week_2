@@ -1,4 +1,5 @@
-
+import re
+card_number='5263-3065-0122-0017'
 def luhn_checksum(card_number):
     def digits_of(n):
         return [int(d) for d in str(n)]
@@ -16,7 +17,7 @@ if len(card_number)==19:
 ### 16 digits
 #check the format
     pattern16=re.compile(r'^\d{4}-\d{4}-\d{4}-\d{4}')
-    match16=pattern.search(card_number)
+    match16=pattern16.search(card_number)
     if match16!=None:
         print "correctly formatted 16 digits (Visa or Mastercard)"
     else:
@@ -29,7 +30,7 @@ if len(card_number)==19:
 elif len(card_number)==17:
     ###15 digits
     pattern15=re.compile(r'^\d{4}-\d{6}-\d{5}')
-    match16=pattern.search(card_number)
+    match16=pattern15.search(card_number)
     if match15!=None:
         print "correctly formatted 15 digits (Amex)"
     else:
@@ -43,6 +44,7 @@ else:
     "Not a credit card number"
 #check the luhn algorithm
 if luhn_checksum(card_number) == 0:
-    print "valid number"
-
+    print "valid number"    
+else:
+    print "not valid number"
 
